@@ -1,5 +1,5 @@
 /* 
-  JS File Name:
+  JS File Name: script s
   Description
 
 */
@@ -58,6 +58,74 @@ function generatePassword(){
   //calling here  userInputChecks() function 
   userInputChecks();
 
+  // array to store generated password
+  var generatedPass=[];
+  // array to store all uppercase,lowercase,special and numeric characters
+  var allChars=[];
+
+
+  // 1.) Generate random character with upper case
+  // 2.) Store full uppercase array in allchars array
+  if(isUpperCase){
+    var randomUppper = upperCaseArray[Math.floor(Math.random() * (upperCaseArray.length - 1))];
+    generatedPass.push(randomUppper);
+    allChars= allChars.concat(upperCaseArray);
+  }
+
+  // 1.) Generate random character with lower case
+  // 2.) Store full lowercase array in allchars array
+  if(isLowerCase){
+    var randomLower = lowerCaseArray[Math.floor(Math.random() * (lowerCaseArray.length - 1))];
+    generatedPass.push(randomLower);
+    allChars=allChars.concat(lowerCaseArray);
+  }
+
+
+  // 1.) Generate random character with numbers
+  // 2.) Store full numeric array in allchars array
+  if(isNumeric){
+    var randomNumeric = numericArray[Math.floor(Math.random() * (numericArray.length - 1))];
+    generatedPass.push(randomNumeric);
+    allChars=allChars.concat(numericArray);
+  }
+
+  // 1.) Generate random character with special characterics
+  // 2.) Store full special characters array in allchars array
+
+  if(isSpecial){
+    var randomSpecialChar = specialCharArray[Math.floor(Math.random() * (specialCharArray.length - 1))];
+    generatedPass.push(randomSpecialChar);
+    allChars=allChars.concat(specialCharArray);
+  }
+  
+  
+  
+  
+  // Calculating lenght of password to complete
+
+  var remainingPassLenght =  passLength - generatedPass.length;
+
+ 
+  
+
+  
+
+  // for loop to generate remaming password
+
+  for (var i = 0; i < remainingPassLenght; i++) {
+    var ind = Math.floor(Math.random() * (allChars.length - 1))
+    var newCharsInPass = allChars[ind];
+    generatedPass.push(newCharsInPass);
+  }
+
+  console.log(generatedPass);
+
+  // Converting array to string with toString function
+  
+  return generatedPass.join("");
+
+
+
 }
 
 
@@ -74,12 +142,17 @@ function userInputChecks(){
 
   // prompt to ask password lenght
 
-  chararterLenght = prompt("How many characters would you like your password ? The password must be between 8 and 128 characters.");
+  passLength= prompt("How many characters would you like your password ? The password must be between 8 and 128 characters.");
 
-  //  1.) Condition to check password length between 8 to 128 character
+  // When user hits cancel for prompt and null checks best practice
+   if(passLength==null){
+     return;
+   }
+
+  //  1.) Condition to check password length between 8 to 128 character and not alphabets (NaN)(NOT AN NUMBER)
   //  2.) Call function userInputChecks agian if conditions are true -- Recursive function call /technique
 
-  if((isNaN(chararterLenght)) || (chararterLenght < 8) || (chararterLenght > 128)) {
+  if((isNaN(passLength)) || (passLength < 8) || (passLength > 128)) {
     alert("ERROR: That is not a valid input. Please enter between 8 and 128 characters.");
     userInputChecks();
 
@@ -95,7 +168,7 @@ function userInputChecks(){
 
 
      if((isUpperCase===false)&&(isLowerCase===false)&&(isNumeric===false)&&(isSpecial===false)){
-       alert("ERROR: You must select at least a criteria for the password.");
+       alert("ERROR: At least one character type should be selected");
        userInputChecks();
      }
 
