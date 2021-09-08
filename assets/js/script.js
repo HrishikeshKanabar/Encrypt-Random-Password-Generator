@@ -8,7 +8,7 @@
 
 var passLength="";
 var isUpperCase=false;
-var isLowerCas=false;
+var isLowerCase=false;
 var isNumeric=false;
 var isSpecial=false;
 
@@ -76,12 +76,28 @@ function userInputChecks(){
 
   chararterLenght = prompt("How many characters would you like your password ? The password must be between 8 and 128 characters.");
 
-  //  1.) Condition to check password length
-  //  2.) Call function userInputChecks agian -- Recursive function call /technique
+  //  1.) Condition to check password length between 8 to 128 character
+  //  2.) Call function userInputChecks agian if conditions are true -- Recursive function call /technique
 
   if((isNaN(chararterLenght)) || (chararterLenght < 8) || (chararterLenght > 128)) {
-    alert("That is not a valid input. Please enter between 8 and 128 characters.");
+    alert("ERROR: That is not a valid input. Please enter between 8 and 128 characters.");
     userInputChecks();
+
+  }else{
+
+    isUpperCase = confirm("Click OK , if you want to include uppercase characters in your password.");
+    isLowerCase = confirm("Click OK , if you want to include lowercase characters in your password.");
+    isNumeric = confirm("Click OK ,  if you want to include numbers in your password");
+    isSpecial = confirm("Click OK , if you want to include special characters in password");
+      
+    // 1.) Condition to check uppercase ,lowercase,numer and special characters
+    // 2.) Call function userInputChecks agian  if conditions are true -- Recursive function call /technique
+
+
+     if((isUpperCase===false)&&(isLowerCase===false)&&(isNumeric===false)&&(isSpecial===false)){
+       alert("ERROR: You must select at least a criteria for the password.");
+       userInputChecks();
+     }
 
   }
 
