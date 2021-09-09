@@ -22,7 +22,7 @@ FEW FEATURES:
 
  Web Application        
 :--------------------------------:|
-![Web Application ]https://github.com/HrishikeshKanabar/Encrypt-Random-Password-Generator/blob/main/assets/images/PG.JPG)      
+![Web Application ](https://github.com/HrishikeshKanabar/Encrypt-Random-Password-Generator/blob/main/assets/images/PG.JPG)      
 
 Web Application  with prompt      
 :--------------------------------:|
