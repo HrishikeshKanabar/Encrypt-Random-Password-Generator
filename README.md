@@ -22,11 +22,11 @@ FEW FEATURES:
 
  Web Application        
 :--------------------------------:|
-![Web Application ]()      
+![Web Application ]https://github.com/HrishikeshKanabar/Encrypt-Random-Password-Generator/blob/main/assets/images/PG.JPG)      
 
 Web Application  with prompt      
 :--------------------------------:|
-![iWeb Application  with prompt]()         
+![iWeb Application  with prompt](https://github.com/HrishikeshKanabar/Encrypt-Random-Password-Generator/blob/main/assets/images/PGprom.JPG)         
 
 
 ## Acceptance Criteria achieved
