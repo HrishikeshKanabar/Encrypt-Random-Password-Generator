@@ -122,10 +122,18 @@ function writePassword() {
   // calling  generatePassword function here
   var password = generatePassword();
 
+  
+
   // Fetching card element to diaplay generated password
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+ 
+ // When user hits cancel for prompt and null checks best practice
+  if(password===undefined){
+     passwordText.value="";
+     return;
+  }else{
+    passwordText.value = password;
+  }
 }
 
 // Add event listener to generate button
@@ -145,6 +153,13 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
   //calling here  userInputChecks() function
   userInputChecks();
+
+  // null check
+   // When user hits cancel for prompt and null checks best practice
+   if (passLength === null) {
+    return;
+  }
+
 
   // array to store generated password
   var generatedPass = [];
@@ -226,8 +241,10 @@ function userInputChecks() {
     "How many characters would you like your password ? The password must be between 8 and 128 characters."
   );
 
+  console.log(passLength);
+
   // When user hits cancel for prompt and null checks best practice
-  if (passLength == null) {
+  if (passLength === null) {
     return;
   }
 
